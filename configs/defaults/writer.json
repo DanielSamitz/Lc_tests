@@ -1,0 +1,20 @@
+{
+  "OutputDirector": {
+    "debugmode": false,
+    "resfile": "LcToK0sPTree",
+    "resfilemode": "RECREATE",
+    "ntfmerge": 100,
+    "OutputDescriptors": [
+      {
+        "table": "AOD/HFCANDCASCFull/0"
+      },
+      {
+        "table": "AOD/HFCANDCASCFullE/0"
+      },
+      {
+        "table": "AOD/HFCANDCASCFullP/0"
+      }
+    ]
+  }
+}
+

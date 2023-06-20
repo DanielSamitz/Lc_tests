@@ -1,0 +1,15 @@
+{
+  "OutputDirector": {
+    "debugmode": false,
+    "resfile": "AnalysisResults_tree",
+    "resfilemode": "RECREATE",
+    "ntfmerge": 100,
+    "OutputDescriptors": [
+      {
+        "table": "AOD/HFCANDCASCFull2/0",
+        "treename": "O2hfcandcascfull"
+      }
+    ]
+  }
+}
+

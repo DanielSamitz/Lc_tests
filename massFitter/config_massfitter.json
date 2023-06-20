@@ -1,0 +1,94 @@
+{
+  "IsMC": false,
+  "InFileName": "AnalysisResults.root",
+  "ReflFileName": "",
+  "OutFileName": "massFitter/massfitter_out",
+  "InputHistoName": [
+    "hf-task-lc-to-k0s-p/hMass"
+  ],
+  "PromptHistoName": [
+    "MC prompt histogram name array"
+  ],
+  "FDHistoName": [
+    "MC FD histogram name array"
+  ],
+  "ReflHistoName": [
+    "MC reflection histogram name array"
+  ],
+  "PromptSecPeakHistoName": [
+    "MC prompt second peak histogram name array"
+  ],
+  "FDSecPeakHistoName": [
+    "MC FD second peak histogram name array"
+  ],
+  "Particle": "LcToPK0s",
+  "_Particles": [
+    "Dplus",
+    "Ds",
+    "LcToPKPi",
+    "LcToPK0s",
+    "Dstar"
+  ],
+  "EnableRefl": false,
+  "FixSigma": false,
+  "SigmaFile": "",
+  "_SigmaFile": "fix sigma from file",
+  "FixSigmaManual": [
+    0.01
+  ],
+  "_FixSigmaManual": "fix sigma mannually",
+  "FixMean": false,
+  "MeanFile": "massFitter/AnalysisResults_test.root",
+  "_MeanFile": "fix mean from file",
+  "PtMin": [
+    1.0
+  ],
+  "PtMax": [
+    24.0
+  ],
+  "MassMin": [
+    2.15
+  ],
+  "MassMax": [
+    2.40
+  ],
+  "Rebin": [
+    9
+  ],
+  "InclSecPeak": false,
+  "SigmaSecPeak": "",
+  "SigmaFileSecPeak": "",
+  "SigmaMultFactorSecPeak": 1.0,
+  "FixSigmaToFirstPeak": false,
+  "UseLikelihood": true,
+  "_UseLikelihood": [
+    "true: likelihood fit",
+    "false: chi2 fit"
+  ],
+  "BkgFunc": [
+    0
+  ],
+  "_BkgFuncs": [
+    "0 for Expo",
+    "1 for Poly1",
+    "2 for Poly2",
+    "3 for Pow",
+    "4 for PowEx",
+    "5 for Poly3",
+    "6 for NoBkg"
+  ],
+  "SgnFunc": [
+    0
+  ],
+  "_SgnFuncs": [
+    "0 for SingleGaus",
+    "1 for DoubleGaus",
+    "2 for DoubleGausSigmaRatioPar",
+    "3 for GausSec"
+  ],
+  "BoundMean": false,
+  "_BoundMean": [
+    "false: Do not set limits on mean range",
+    "true: the mean is set to be between MassMin[i] and MassMax[i]"
+  ]
+}

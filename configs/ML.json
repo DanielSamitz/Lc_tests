@@ -1,0 +1,28 @@
+ {
+    "hf-candidate-selector-lc-to-k0s-p": {
+    "applyML": "true",
+        "onnxFile": "/home/daniel/alice/MyStuff/ML/Lc/BDT/model_onnx.onnx",
+        "binsPtML": {
+            "values": [
+                "0",
+                "1000"
+            ]
+        },
+        "thresholdBDTScore": {
+            "labels_rows": "",
+            "labels_cols": [
+                "BDTbkg",
+                "BDTprompt",
+                "BDTnonprompt"
+            ],
+            "values": [
+                [
+                    "0.8",
+                    "0.2",
+                    "2"
+                ]
+            ]
+        },
+        "MLInputs": "2088892"
+    }
+}

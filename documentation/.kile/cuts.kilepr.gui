@@ -1,0 +1,30 @@
+[General]
+kile_livePreviewEnabled=true
+kile_livePreviewStatusUserSpecified=false
+kile_livePreviewTool=LivePreview-PDFLaTeX
+lastDocument=Cuts.tex
+
+[document-settings,item:Cuts.tex]
+Bookmarks=
+Encoding=
+Highlighting=LaTeX
+Highlighting Set By User=false
+Indentation Mode=normal
+Mode=LaTeX
+Mode Set By User=false
+
+[item:Cuts.tex]
+open=true
+order=0
+
+[item:cuts.kilepr]
+open=false
+order=-1
+
+[view-settings,view=0,item:Cuts.tex]
+CursorColumn=49
+CursorLine=22
+Dynamic Word Wrap=true
+JumpList=
+TextFolding=[]
+ViMarks=.,22,49,[,22,49,],22,49

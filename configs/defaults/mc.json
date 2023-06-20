@@ -1,0 +1,15 @@
+{
+    "event-selection-task": {
+        "isMC": "true"
+    },
+    "hf-candidate-creator-cascade-mc": {
+        "processMc": "true"
+    },
+    "hf-task-lc-to-k0s-p": {
+        "processMc": "true"
+    },
+     "hf-tree-creator-lc-to-k0s-p": {
+        "processMc": "true",
+        "processData": "false"
+    }
+}

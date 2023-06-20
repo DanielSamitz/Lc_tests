@@ -1,0 +1,77 @@
+{
+    "track-propagation": {
+        "minPropagationDistance": "5.0"
+    },
+    "track-selection": {
+        "itsMatching": "1"
+    },
+    "track-to-collision-association": {
+        "timeMargin": "500",
+        "includeUnassigned": "true",
+        "processAssocWithTime": "true",
+        "processStandardAssoc": "false"
+    },
+     "hf-track-index-skim-creator-tag-sel-collisions": {
+        "xVertexMin": "-1",
+        "xVertexMax": "1",
+        "yVertexMin": "-1",
+        "yVertexMax": "1",
+        "zVertexMin": "-10",
+        "zVertexMax": "10",
+        "useSel8Trigger": "true",
+        "processTrigSel": "true",
+        "processNoTrigSel": "false"
+    },
+    "hf-track-index-skim-creator-tag-sel-tracks": {
+        "doPvRefit": "false",
+        "doCutQuality": "true",
+         "tpcNClsFoundMin": "70",
+          "binsPtTrack": {
+            "values": [
+                "0",
+                "0.5",
+                "1",
+                "1.5",
+                "2",
+                "3",
+                "1000"
+            ]
+        },
+        "ptMinTrackBach": "0.3",
+        "cutsTrackBach": {
+            "labels_rows": "",
+            "labels_cols": [
+                "min_dcaxytoprimary",
+                "max_dcaxytoprimary"
+            ],
+            "values": [
+                [
+                    "0.0025",
+                    "10"
+                ],
+                [
+                    "0.0025",
+                    "10"
+                ],
+                [
+                    "0.0025",
+                    "10"
+                ],
+                [
+                    "0.0025",
+                    "10"
+                ],
+                [
+                    "0",
+                    "10"
+                ],
+                [
+                    "0",
+                    "10"
+                ]
+            ]
+        },
+        "etaMinTrackBach": "-99999",
+        "etaMaxTrackBach": "0.8"
+    }
+}

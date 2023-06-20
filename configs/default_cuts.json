@@ -1,0 +1,241 @@
+{
+    "lambdakzero-preselector": {
+        "dIfMCgenerateK0Short": "true",
+        "dIfMCgenerateLambda": "true",
+        "dIfMCgenerateAntiLambda": "true",
+        "dIfMCgenerateGamma": "false",
+        "dIfMCgenerateHypertriton": "false",
+        "dIfMCgenerateAntiHypertriton": "false",
+        "ddEdxPreSelectK0Short": "true",
+        "ddEdxPreSelectLambda": "true",
+        "ddEdxPreSelectAntiLambda": "true",
+        "ddEdxPreSelectGamma": "false",
+        "ddEdxPreSelectHypertriton": "false",
+        "ddEdxPreSelectAntiHypertriton": "false",
+        "ddEdxPreSelectionWindow": "7",
+        "dTPCNCrossedRows": "50",
+        "dPreselectOnlyBaryons": "false",
+        "processBuildAll": "true",
+        "processBuildMCAssociated": "false",
+        "processBuildValiddEdx": "false",
+        "processBuildValiddEdxMCAssociated": "false",
+        "processSkipV0sNotUsedInCascades": "false",
+        "processSkipV0sNotUsedInTrackedCascades": "false"
+    },
+    "lambdakzero-builder": {
+        "createV0CovMats": "-1",
+        "d_UseAutodetectMode": "false",
+        "dcanegtopv": "0.1",
+        "dcapostopv": "0.1",
+        "v0cospa": "0.995",
+        "dcav0dau": "1",
+        "v0radius": "0.9",
+        "tpcrefit": "0",
+        "d_bz": "-999",
+        "d_UseAbsDCA": "true",
+        "d_UseWeightedPCA": "false",
+        "useMatCorrType": "2",
+        "rejDiffCollTracks": "0",
+        "d_doTrackQA": "false",
+        "d_QA_checkMC": "true",
+        "d_QA_checkdEdx": "false",
+        "ccdb-url": "http:\/\/alice-ccdb.cern.ch",
+        "grpPath": "GLO\/GRP\/GRP",
+        "grpmagPath": "GLO\/Config\/GRPMagField",
+        "lutPath": "GLO\/Param\/MatLUT",
+        "geoPath": "GLO\/Config\/GeometryAligned",
+        "mVtxPath": "GLO\/Calib\/MeanVertex",
+        "d_doQA": "false",
+        "dQANBinsRadius": "500",
+        "dQANBinsPtCoarse": "10",
+        "dQANBinsMass": "400",
+        "dQAMaxPt": "5",
+        "dQAK0ShortMassWindow": "0.005",
+        "dQALambdaMassWindow": "0.0045",
+        "processRun2": "false",
+        "processRun3": "true"
+    },
+    "lambdakzero-initializer": "",
+    "hf-track-index-skim-creator-cascades": {
+        "isRun2": "false",
+        "fillHistograms": "true",
+        "propagateToPCA": "true",
+        "maxR": "200",
+        "maxDZIni": "4",
+        "minParamChange": "0.001",
+        "minRelChi2Change": "0.9",
+        "doCutQuality": "true",
+        "nCrossedRowsMinBach": "50",
+        "nCrossedRowsMinV0Daugh": "50",
+        "etaMinV0Daugh": "-99999",
+        "etaMaxV0Daugh": "1.1",
+        "ptMinV0Daugh": "0.05",
+        "cpaV0Min": "0.995",
+        "dcaXYNegToPvMin": "0.1",
+        "dcaXYPosToPvMin": "0.1",
+        "cutInvMassV0": "0.05",
+        "ptCascCandMin": "-1",
+        "cutInvMassCascLc": "1"
+    },
+    "lambdakzero-v0-data-link-builder": "",
+    "hf-candidate-creator-cascade": {
+        "propagateToPCA": "true",
+        "maxR": "200",
+        "maxDZIni": "4",
+        "minParamChange": "0.001",
+        "minRelChi2Change": "0.9"
+    },
+    "hf-candidate-selector-lc-to-k0s-p": {
+        "ptCandMin": "0",
+        "ptCandMax": "50",
+        "pPidThreshold": "1",
+        "nSigmaTpcMaxLowP": "2",
+        "nSigmaTpcCombinedMaxLowP": "2",
+        "nSigmaTpcMaxHighP": "0",
+        "nSigmaTpcCombinedMaxHighP": "9999",
+        "nSigmaTofMaxLowP": "0",
+        "nSigmaTofCombinedMaxLowP": "9999",
+        "nSigmaTofMaxHighP": "3",
+        "nSigmaTofCombinedMaxHighP": "3",
+        "probBayesMinLowP": "0.8",
+        "probBayesMinHighP": "0.8",
+        "binsPt": {
+            "values": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "8",
+                "12",
+                "24"
+            ]
+        },
+        "cuts": {
+            "labels_rows": [
+                "pT bin 0",
+                "pT bin 1",
+                "pT bin 2",
+                "pT bin 3",
+                "pT bin 4",
+                "pT bin 5",
+                "pT bin 6",
+                "pT bin 7"
+            ],
+            "labels_cols": [
+                "mK0s",
+                "mLambda",
+                "mGamma",
+                "ptBach",
+                "ptV0Dau",
+                "ptV0",
+                "d0Bach",
+                "d0V0"
+            ],
+            "values": [
+                [
+                    "0.008",
+                    "0.005",
+                    "0.1",
+                    "0.5",
+                    "0.3",
+                    "0.6",
+                    "0.05",
+                    "999999"
+                ],
+                [
+                    "0.008",
+                    "0.005",
+                    "0.1",
+                    "0.5",
+                    "0.4",
+                    "1.3",
+                    "0.05",
+                    "999999"
+                ],
+                [
+                    "0.009",
+                    "0.005",
+                    "0.1",
+                    "0.6",
+                    "0.4",
+                    "1.3",
+                    "0.05",
+                    "999999"
+                ],
+                [
+                    "0.011",
+                    "0.005",
+                    "0.1",
+                    "0.6",
+                    "0.4",
+                    "1.4",
+                    "0.05",
+                    "999999"
+                ],
+                [
+                    "0.013",
+                    "0.005",
+                    "0.1",
+                    "0.6",
+                    "0.4",
+                    "1.4",
+                    "0.06",
+                    "999999"
+                ],
+                [
+                    "0.013",
+                    "0.005",
+                    "0.1",
+                    "0.9",
+                    "0.4",
+                    "1.6",
+                    "0.09",
+                    "999999"
+                ],
+                [
+                    "0.016",
+                    "0.005",
+                    "0.1",
+                    "0.9",
+                    "0.4",
+                    "1.7",
+                    "0.1",
+                    "999999"
+                ],
+                [
+                    "0.019",
+                    "0.005",
+                    "0.1",
+                    "1",
+                    "0.4",
+                    "1.9",
+                    "0.2",
+                    "999999"
+                ]
+            ]
+        },
+        "processWithStandardPID": "true",
+        "processWithBayesPID": "false"
+    },
+    "hf-tree-creator-lc-to-k0s-p": {
+        "downSampleBkgFactor": "1"
+    },
+    "hf-task-lc-to-k0s-p": {
+        "etaCandMax": "-1",
+        "binsPt": {
+            "values": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "8",
+                "12",
+                "24"
+            ]
+        }
+    }
+}

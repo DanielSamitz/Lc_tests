@@ -1,0 +1,121 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[top=2.5cm]{geometry}
+
+\title{}
+\author{}
+\date{}
+
+\pdfinfo{%
+  /Title    ()
+  /Author   ()
+  /Creator  ()
+  /Producer ()
+  /Subject  ()
+  /Keywords ()
+}
+
+\begin{document}
+
+\section{lambdakzeroBuilder}
+(??? what if not useAbsDCA? is this really all in [cm]?)
+\begin{itemize}
+ \item V0
+ \begin{itemize}
+ \item min. radius (0.9 cm)
+ \item min. $\cos(\theta)$ (0.995)
+ \item max. DCA between daughters (1.0 cm)
+ \end{itemize}
+ \item V0 daughters
+ \begin{itemize}
+ \item min. DCAxy to PV (0.1 cm)
+ \item min. TPC crossed rows (70)
+ \end{itemize}
+
+\end{itemize}
+
+
+\section{HfTrackIndexSkimCreatorTagSelTracks}
+(cuts on bachelor track)
+\begin{itemize}
+\item quality checks (true)
+\begin{itemize}
+\item useIsGlobalTrack (false)
+\item useIsGlobalTrackWoDCA (false)
+\item min. TPC found clusters (70)
+\end{itemize}
+ \item min. $p_T$ (0.3 GeV)
+ \item max $|\eta|$ (0.8)
+ \item DCAxy ($p_T$ $<$ 2 GeV: 0.0025cm $<$ DCAxy $<$ 10cm,\\ \hspace*{1.4cm}$p_T$ $>$ 2 GeV: 0cm $<$ DCAxy $<$ 10cm)
+\end{itemize}
+
+\section{HfTrackIndexSkimCreatorCascades}
+
+\begin{itemize}
+ \item candidate
+ \begin{itemize}
+ \item max. $|m-m(\Lambda_c)|$ (1.0 GeV)
+ \item min. $p_T$ (0 GeV)
+ \textcolor{gray}{\item max. R (200 cm(?))}
+  \end{itemize}
+ \item bachelor
+ \begin{itemize}
+ \item TPCrefit (true)
+ \item min. TPC crossed rows (50)
+ \end{itemize}
+ \item V0
+ \begin{itemize}
+ \item max. $|m - m(K_S^0)|$ (50 MeV)
+ \item min. $\cos(\theta)$ (0.995)
+ \end{itemize}
+ \item V0 daughters
+  \begin{itemize}
+ \item TPCrefit (true)
+ \item min. TPC min. crossed rows (50)
+ \item max. $|\eta|$ (1.1)
+ \item min. $p_T$ (0.05 GeV)
+ \end{itemize}
+\end{itemize}
+\textcolor{gray}{
+\section{HfTrackIndexSkimCreatorCascades}
+(TODO: set magentic field from CCDB !!!)
+\begin{itemize}
+  \item max. R (200 cm(?))
+  \item max. dZ (4 cm(?))
+\end{itemize}
+}
+\section{HfCandidateSelectorLcToK0sP}
+\begin{itemize}
+ \item candidate
+ \begin{itemize}
+ \item $p_T$ ($1\,\rm{GeV} < p_T < 24\,\rm{GeV}$)
+ \end{itemize}
+ \item bachelor
+ \begin{itemize}
+ \item min. $p_T$ (0.5 GeV - 1.0 GeV)
+ \item max. DCAxy (0.05 cm - 0.2 cm)
+ \item PID (true):
+ \begin{itemize}
+ \item max. $|n\sigma^{\rm{TPC}}|$ ($p < 1$ GeV: 2, $p>1$ GeV: $\infty$)
+ \item max. $|n\sigma^{\rm{TOF}}|$ ($p < 1$ GeV: $\infty$, $p>1$ GeV: 3)
+ \end{itemize}
+ \end{itemize}
+ \item V0
+ \begin{itemize}
+ \item min. $p_T$ (0.6 GeV - 1.9 GeV)
+ \item max. DCAxy ($\infty$)
+ \item max. $|m - m(K_S^0)|$ (8 MeV - 19 MeV)
+ \item min. $|m - m(\Lambda)|$ (5 MeV)
+ \item min. $|m - m(\gamma)|$ (100 MeV)
+ \end{itemize}
+ \item V0 daughters
+ \begin{itemize}
+ \item min. $p_T$ (0.3 GeV - 0.4 GeV)
+ \end{itemize}
+\end{itemize}
+
+
+\end{document}
