@@ -23,8 +23,8 @@ def merge_jsons(input_list, outfile):
 				new_json[task]=this_json[task]
 			else:
 				for key in this_json[task]:
-					if key in new_json[task]:
-						print("json_merger: WARNING: overwriting "+task+" : "+key+": "+new_json[task][key]+" --> "+this_json[task][key])
+					#if key in new_json[task]:
+						#print("json_merger: WARNING: overwriting "+task+" : "+key+": "+new_json[task][key]+" --> "+this_json[task][key])
 					new_json[task][key] = this_json[task][key]
 
 	output = json.dumps(new_json, indent=4,sort_keys=True)
