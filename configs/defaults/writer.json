@@ -3,7 +3,7 @@
     "debugmode": false,
     "resfile": "LcToK0sPTree",
     "resfilemode": "RECREATE",
-    "ntfmerge": 100,
+    "ntfmerge": 1,
     "OutputDescriptors": [
       {
         "table": "AOD/HFCANDCASCFull/0"

@@ -1,0 +1,11 @@
+{
+    "hf-candidate-selector-lc-to-k0s-p": {
+        "processWithStandardPID": "false",
+        "processWithBayesPID": "true"
+    },
+    "bayes-pid": {
+        "enableTOF": "true",
+        "enableTPC": "true",
+        "ccdbPathTOF": "Analysis/PID/TOF"
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "lambdakzero-builder": {
+        "dcanegtopv": "0.01",
+        "dcapostopv": "0.01",
+        "v0cospa": "0.99",
+        "dcav0dau": "2",
+        "v0radius": "0.2"
+    },
+    "hf-track-index-skim-creator-cascades": {
+        "ptMinV0Daugh": "0.01",
+        "cpaV0Min": "0.99",
+        "dcaXYNegToPvMin": "0.01",
+        "dcaXYPosToPvMin": "0.01",
+        "cutInvMassV0": "0.1"
+    },
+    "hf-candidate-selector-lc-to-k0s-p": {
+        "ptCandMin": "0",
+        "ptCandMax": "50",
+        "pPidThreshold": "1",
+        "nSigmaTpcMaxLowP": "7",
+        "nSigmaTpcCombinedMaxLowP": "7",
+        "nSigmaTpcMaxHighP": "7",
+        "nSigmaTpcCombinedMaxHighP": "7",
+        "nSigmaTofMaxLowP": "7",
+        "nSigmaTofCombinedMaxLowP": "7",
+        "nSigmaTofMaxHighP": "7",
+        "nSigmaTofCombinedMaxHighP": "7",
+        "binsPt": {
+            "values": [
+                "1",
+                "24"
+            ]
+        },
+        "cuts": {
+            "labels_rows": [
+                "pT bin 0"
+            ],
+            "labels_cols": [
+                "mK0s",
+                "mLambda",
+                "mGamma",
+                "ptBach",
+                "ptV0Dau",
+                "ptV0",
+                "d0Bach",
+                "d0V0"
+            ],
+            "values": [
+                [
+                    "0.05",
+                    "0.0",
+                    "0.0",
+                    "0.1",
+                    "0.1",
+                    "0.1",
+                    "0.5",
+                    "999999"
+                ]
+            ]
+        }
+    }
+}

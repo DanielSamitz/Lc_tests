@@ -1,0 +1,52 @@
+{
+    "hf-candidate-creator-cascade": {
+        "TPCNSigmaBach": "-1"
+
+    },
+    "hf-candidate-selector-lc-to-k0s-p": {
+        "ptCandMin": "0",
+        "ptCandMax": "999",
+        "pPidThreshold": "1",
+        "nSigmaTpcMaxLowP": "7",
+        "nSigmaTpcCombinedMaxLowP": "0",
+        "nSigmaTpcMaxHighP": "7",
+        "nSigmaTpcCombinedMaxHighP": "0",
+        "nSigmaTofMaxLowP": "0",
+        "nSigmaTofCombinedMaxLowP": "9999",
+        "nSigmaTofMaxHighP": "0",
+        "nSigmaTofCombinedMaxHighP": "9999",
+        "binsPt": {
+            "values": [
+                "0",
+                "999"
+            ]
+        },
+        "cuts": {
+            "labels_rows": [
+                "pT bin 0"
+            ],
+            "labels_cols": [
+                "mK0s",
+                "mLambda",
+                "mGamma",
+                "ptBach",
+                "ptV0Dau",
+                "ptV0",
+                "d0Bach",
+                "d0V0"
+            ],
+            "values": [
+                [
+                    "9999",
+                    "0.0",
+                    "0.0",
+                    "0.0",
+                    "0.0",
+                    "0.0",
+                    "99999",
+                    "999999"
+                ]
+            ]
+        }
+    }
+}

@@ -1,28 +1,59 @@
  {
     "hf-candidate-selector-lc-to-k0s-p": {
-    "applyML": "true",
-        "onnxFile": "/home/daniel/alice/MyStuff/ML/Lc/BDT/model_onnx.onnx",
-        "binsPtML": {
+    "applyMl": "true",
+        "binsPtMl": {
             "values": [
                 "0",
                 "1000"
             ]
         },
-        "thresholdBDTScore": {
-            "labels_rows": "",
+        "modelPathsMl": {
+            "values": [
+                "/home/daniel/alice/MyStuff/ML/Lc/BDT/model_onnx.onnx"
+            ]
+        },
+        "cutDirMl": {
+            "values": [
+                "0",
+                "1"
+            ]
+        },
+        "cutsMl": {
+            "labels_rows": [
+                "pT bin 0"
+            ],
             "labels_cols": [
-                "BDTbkg",
-                "BDTprompt",
-                "BDTnonprompt"
+                "score class 1",
+                "score class 2"
             ],
             "values": [
                 [
                     "0.8",
-                    "0.2",
-                    "2"
+                    "0.2"
                 ]
             ]
         },
-        "MLInputs": "2088892"
+        "nClassesMl": "2",
+        "inputFeaturesML": {
+            "values": [
+                "ptProng0",
+                "ptProng1",
+                "impactParameter0",
+                "impactParameter1",
+                "v0CosPA",
+                "v0MLambda",
+                "v0MAntiLambda",
+                "v0MK0Short",
+                "v0MGamma",
+                "v0CtK0Short",
+                "dcaV0Daughters",
+                "ptV0Pos",
+                "dcaPosToPV",
+                "ptV0Neg",
+                "dcaNegToPV",
+                "nSigmaTPCPr0",
+                "nSigmaTOFPr0"
+            ]
+        }
     }
 }

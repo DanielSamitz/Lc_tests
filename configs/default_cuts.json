@@ -7,17 +7,17 @@
         "dIfMCgenerateHypertriton": "false",
         "dIfMCgenerateAntiHypertriton": "false",
         "ddEdxPreSelectK0Short": "true",
-        "ddEdxPreSelectLambda": "true",
-        "ddEdxPreSelectAntiLambda": "true",
+        "ddEdxPreSelectLambda": "false",
+        "ddEdxPreSelectAntiLambda": "false",
         "ddEdxPreSelectGamma": "false",
         "ddEdxPreSelectHypertriton": "false",
         "ddEdxPreSelectAntiHypertriton": "false",
         "ddEdxPreSelectionWindow": "7",
         "dTPCNCrossedRows": "50",
         "dPreselectOnlyBaryons": "false",
-        "processBuildAll": "true",
+        "processBuildAll": "false",
         "processBuildMCAssociated": "false",
-        "processBuildValiddEdx": "false",
+        "processBuildValiddEdx": "true",
         "processBuildValiddEdxMCAssociated": "false",
         "processSkipV0sNotUsedInCascades": "false",
         "processSkipV0sNotUsedInTrackedCascades": "false"
@@ -215,9 +215,7 @@
                     "999999"
                 ]
             ]
-        },
-        "processWithStandardPID": "true",
-        "processWithBayesPID": "false"
+        }
     },
     "hf-tree-creator-lc-to-k0s-p": {
         "downSampleBkgFactor": "1"
