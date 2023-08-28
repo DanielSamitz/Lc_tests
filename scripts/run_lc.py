@@ -11,13 +11,12 @@ MERGED_CONF_NAME = "merged_config.json"
 LOG_NAME = "logfile.txt"
 DEFAULT_CONFS_PATH="/home/daniel/alice/MyStuff/Lc_tests/configs/defaults"
 WRITER_CONF="writer.json"
-WRITER_TREE_CONF="writer_tree.json"
 MINIMAL_CONF="minimal.json"
 DEFAULT_CONF="default.json"
+BAYES_CONF="bayes.json"
 MC_CONF="mc.json"
 
 
-# TODO: Bayes PID
 # TODO: write AnalysisResults_tree.root with tree analyzer only when reduced tree is filled
 
 def append_tasks(args):
@@ -50,6 +49,10 @@ def append_tasks(args):
   if args.tree_creator:
     tasks_hf.append("o2-analysis-hf-tree-creator-lc-to-k0s-p")
 
+  if args.bayes_pid:
+    tasks_hf.append("o2-analysis-pid-bayes")
+    tasks_hf.append("o2-analysis-multiplicity-table")
+
   if args.zdc_converter:
     tasks_common.append("o2-analysis-zdc-converter")
   if args.collision_converter:
@@ -77,6 +80,9 @@ def get_config(args):
   if args.mc:
     all_configs.append(join(DEFAULT_CONFS_PATH,MC_CONF))
     print("including config file "+MC_CONF)
+  if args.bayes_pid:
+    all_configs.append(join(DEFAULT_CONFS_PATH,BAYES_CONF))
+    print("including config file "+BAYES_CONF)
 
   for user_conf in args.config:
     all_configs.append(user_conf)
@@ -92,7 +98,7 @@ def get_config(args):
 
 
 
-def execute_command(tasks, aod, config, output_dir, tree_creator, logfile, analyse_tree, monitoring):
+def execute_command(tasks, aod, config, output_dir, tree_creator, logfile, monitoring):
   if aod[0]=="@":
     aod="@"+abspath(aod[1:])
   else:
@@ -106,9 +112,7 @@ def execute_command(tasks, aod, config, output_dir, tree_creator, logfile, analy
     commandToRun += task + " --configuration json://" + config + " -b | "
   commandToRun = commandToRun[:-3]
   commandToRun += " --aod-file "+ aod
-  if analyse_tree:
-    commandToRun += " --aod-writer-json "+join(DEFAULT_CONFS_PATH,WRITER_TREE_CONF)
-  elif tree_creator:
+  if tree_creator:
     commandToRun += " --aod-writer-json "+join(DEFAULT_CONFS_PATH,WRITER_CONF)
   if monitoring:
     commandToRun += " --resources-monitoring 2"
@@ -150,15 +154,15 @@ def main():
   parser.add_argument("--m", help="add minimal config", action="store_true")
   parser.add_argument("--d", help="add default config", action="store_true")
   parser.add_argument("--mc", help="add minimal mc config", action="store_true")
-  parser.add_argument("--analyse-tree",dest="analyse_tree", help="run on a tree output", action="store_true")
   parser.add_argument("--resources-monitoring",dest="resources_monitoring", help="enable resources monitoring", action="store_true")
+  parser.add_argument("--bayes-pid", dest="bayes_pid", help="run with Bayes pid", action="store_true")
   args = parser.parse_args()
 
   tasks = append_tasks(args)
 
   config = get_config(args)
 
-  execute_command(tasks, args.aod, config, args.output, args.tree_creator, args.logfile, args.analyse_tree, args.resources_monitoring)
+  execute_command(tasks, args.aod, config, args.output, args.tree_creator, args.logfile, args.resources_monitoring)
 
   return 0
 
