@@ -21,9 +21,6 @@ MC_CONF="mc.json"
 
 def append_tasks(args):
 
-  if args.analyse_tree:
-    return ["o2-analysis-hf-task-candidate-selector-lc-to-k0s-p-tree", "o2-analysis-hf-task-lc-to-k0s-p-tree"]
-
   tasks_common = [
   "o2-analysis-event-selection",
   "o2-analysis-pid-tpc-base",
