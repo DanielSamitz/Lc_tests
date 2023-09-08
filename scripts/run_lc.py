@@ -50,6 +50,8 @@ def append_tasks(args):
     tasks_hf.append("o2-analysis-pid-bayes")
     tasks_hf.append("o2-analysis-multiplicity-table")
 
+  if args.bc_converter:
+    tasks_common.append("o2-analysis-bc-converter")
   if args.zdc_converter:
     tasks_common.append("o2-analysis-zdc-converter")
   if args.collision_converter:
@@ -143,6 +145,7 @@ def main():
   parser.add_argument("-o", "--output", help="output directory", default=os.getcwd())
   parser.add_argument("--logfile", help="writer to log file", action="store_true")
   parser.add_argument("--tree-creator", dest="tree_creator", help="enable tree creator", action="store_true")
+  parser.add_argument("--bc-converter", dest="bc_converter", help="bc converter", action="store_true")
   parser.add_argument("--zdc-converter", dest="zdc_converter", help="zdc converter", action="store_true")
   parser.add_argument("--collision-converter", dest="collision_converter", help="collision converter", action="store_true")
   parser.add_argument("--mc-converter", dest="mc_converter", help="mc converter", action="store_true")
