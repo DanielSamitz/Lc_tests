@@ -23,8 +23,9 @@
         "useIsGlobalTrackWoDCA": "true"
     },
     "hf-track-index-skim-creator": {
-        "processNo2And3Prongs": "true",
-        "process2And3Prongs": "false"
+       "processNo2And3Prongs": "true",
+       "process2And3ProngsWithPvRefit": "false",
+       "process2And3ProngsNoPvRefit": "false"
     },
     "hf-track-index-skim-creator-cascades": {
         "useAbsDCA": "true",
