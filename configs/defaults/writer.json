@@ -6,13 +6,13 @@
     "ntfmerge": 1,
     "OutputDescriptors": [
       {
-        "table": "AOD/HFCANDCASCFull/0"
+        "table": "AOD/HFCANDCASCFULL/0"
       },
       {
-        "table": "AOD/HFCANDCASCFullE/0"
+        "table": "AOD/HFCANDCASCFULLE/0"
       },
       {
-        "table": "AOD/HFCANDCASCFullP/0"
+        "table": "AOD/HFCANDCASCFULLP/0"
       }
     ]
   }
