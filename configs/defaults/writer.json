@@ -6,6 +6,9 @@
     "ntfmerge": 1,
     "OutputDescriptors": [
       {
+        "table": "AOD/HFCANDCASCLITE/0"
+      },
+      {
         "table": "AOD/HFCANDCASCFULL/0"
       },
       {
