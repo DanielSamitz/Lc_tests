@@ -68,7 +68,7 @@
     "lambdakzero-initializer": "",
     "hf-track-index-skim-creator-cascades": {
         "isRun2": "false",
-	"useAbsDCA": "false",
+	"useAbsDCA": "true",
 	"useWeightedFinalPCA": "false",
         "fillHistograms": "true",
         "propagateToPCA": "true",
