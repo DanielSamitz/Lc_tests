@@ -385,8 +385,12 @@ int analyseTree(TString input_files, TString config_file, TString output_file = 
    labels[2 + CandidateRejection::decLengthMax] = "rej. decLengthMax";
 
    TH1I* hCandidates = new TH1I("hCandidates", "hCandidates", nBinsCandidates, 0, nBinsCandidates);
+   TH1I* hCandidatesRecSig = new TH1I("hCandidatesRecSig", "hCandidatesRecSig", nBinsCandidates, 0, nBinsCandidates);
+   TH1I* hCandidatesRecBg = new TH1I("hCandidatesRecBg", "hCandidatesRecBg", nBinsCandidates, 0, nBinsCandidates);
    for (int iBin = 0; iBin < nBinsCandidates; iBin++) {
       hCandidates->GetXaxis()->SetBinLabel(iBin + 1, labels[iBin].data());
+      hCandidatesRecSig->GetXaxis()->SetBinLabel(iBin + 1, labels[iBin].data());
+      hCandidatesRecBg->GetXaxis()->SetBinLabel(iBin + 1, labels[iBin].data());
     }
    const int nHistos = 25;
    TH1F* th1[nHistos];
@@ -570,13 +574,37 @@ int analyseTree(TString input_files, TString config_file, TString output_file = 
                select(statusLc);
 
                hCandidates->Fill(0.5);
+               if (doMc){
+                  if (fFlagMc==1){
+                     hCandidatesRecSig->Fill(0.5);
+                  }
+                  else {
+                     hCandidatesRecBg->Fill(0.5);
+                  }
+               }
                if (statusLc == 0){
                  hCandidates->Fill(1.5);
+                 if (doMc){
+                  if (fFlagMc==1){
+                     hCandidatesRecSig->Fill(1.5);
+                  }
+                  else {
+                     hCandidatesRecBg->Fill(1.5);
+                  }
+               }
                }
                int bin=2;
                for (uint32_t i = 1; i<TMath::Power(2,CandidateRejection::NCandidateRejection)-1; i *= 2){
                  if (i&statusLc){
                    hCandidates->Fill(bin+0.5);
+                   if (doMc){
+                  if (fFlagMc==1){
+                     hCandidatesRecSig->Fill(bin+0.5);
+                  }
+                  else {
+                     hCandidatesRecBg->Fill(bin+0.5);
+                  }
+               }
                  }
                  bin++;
                }
@@ -627,6 +655,10 @@ int analyseTree(TString input_files, TString config_file, TString output_file = 
    TDirectory *dir1 = outFile->mkdir("hf-candidate-selector-lc-to-k0s-p");
    dir1->cd();
    hCandidates->Write();
+   if (doMc){
+      hCandidatesRecSig->Write();
+      hCandidatesRecBg->Write();
+   }
    outFile->cd();
    dir1->Write();
    TDirectory *dir = outFile->mkdir("hf-task-lc-to-k0s-p");
