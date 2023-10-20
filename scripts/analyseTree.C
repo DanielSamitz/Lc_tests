@@ -1,5 +1,4 @@
 // TODO:
-//  2D histo for hCandidate
 //  McGen
 //  check if faster with TChain (merge at least trees per file)
 
@@ -348,7 +347,7 @@ void select(uint32_t &status) {
   }
 }
 
-void make_axis(TH2F *hist, double xAxis[3]) {
+void make_axis(TH2 *hist, double xAxis[3]) {
   double bins[nptBins + 1];
   int counter = 0;
   for (auto b : ptBins) {
@@ -362,6 +361,7 @@ void make_axis(TH2F *hist, double xAxis[3]) {
   }
   hist->SetBins(nxBins, xBins, nptBins, bins);
 }
+
 void make_axis(TH1F *hist, double xAxis[3]) {
   int nxBins = std::round(xAxis[0]);
   double xBins[nxBins + 1];
@@ -418,10 +418,30 @@ int analyseTree(TString input_files, TString config_file,
                                      nBinsCandidates, 0, nBinsCandidates);
   TH1I *hCandidatesRecBg = new TH1I("hCandidatesRecBg", "hCandidatesRecBg",
                                     nBinsCandidates, 0, nBinsCandidates);
+  TH2I *hCandidatesVsPtCand =
+      new TH2I("hCandidatesVsPtCand", "hCandidatesVsPtCand", nBinsCandidates, 0,
+               nBinsCandidates, 1, 0, 1);
+  TH2I *hCandidatesVsPtCandRecSig =
+      new TH2I("hCandidatesVsPtCandRecSig", "hCandidatesVsPtCandRecSig",
+               nBinsCandidates, 0, nBinsCandidates, 1, 0, 1);
+  TH2I *hCandidatesVsPtCandRecBg =
+      new TH2I("hCandidatesVsPtCandRecBg", "hCandidatesVsPtCandRecBg",
+               nBinsCandidates, 0, nBinsCandidates, 1, 0, 1);
+
+  double axisCand[3] = {nBinsCandidates, 0, nBinsCandidates};
+  make_axis(hCandidatesVsPtCand, axisCand);
+  make_axis(hCandidatesVsPtCandRecSig, axisCand);
+  make_axis(hCandidatesVsPtCandRecBg, axisCand);
+
   for (int iBin = 0; iBin < nBinsCandidates; iBin++) {
     hCandidates->GetXaxis()->SetBinLabel(iBin + 1, labels[iBin].data());
+    hCandidatesVsPtCand->GetXaxis()->SetBinLabel(iBin + 1, labels[iBin].data());
     hCandidatesRecSig->GetXaxis()->SetBinLabel(iBin + 1, labels[iBin].data());
+    hCandidatesVsPtCandRecSig->GetXaxis()->SetBinLabel(iBin + 1,
+                                                       labels[iBin].data());
     hCandidatesRecBg->GetXaxis()->SetBinLabel(iBin + 1, labels[iBin].data());
+    hCandidatesVsPtCandRecBg->GetXaxis()->SetBinLabel(iBin + 1,
+                                                      labels[iBin].data());
   }
   const int nHistos = 25;
   TH1F *th1[nHistos];
@@ -631,20 +651,26 @@ int analyseTree(TString input_files, TString config_file,
           select(statusLc);
 
           hCandidates->Fill(0.5);
+          hCandidatesVsPtCand->Fill(0.5, fPt);
           if (doMc) {
             if (fFlagMc == 1) {
               hCandidatesRecSig->Fill(0.5);
+              hCandidatesVsPtCandRecSig->Fill(0.5, fPt);
             } else {
               hCandidatesRecBg->Fill(0.5);
+              hCandidatesVsPtCandRecBg->Fill(0.5, fPt);
             }
           }
           if (statusLc == 0) {
             hCandidates->Fill(1.5);
+            hCandidatesVsPtCand->Fill(1.5, fPt);
             if (doMc) {
               if (fFlagMc == 1) {
                 hCandidatesRecSig->Fill(1.5);
+                hCandidatesVsPtCandRecSig->Fill(1.5, fPt);
               } else {
                 hCandidatesRecBg->Fill(1.5);
+                hCandidatesVsPtCandRecBg->Fill(1.5, fPt);
               }
             }
           }
@@ -654,11 +680,14 @@ int analyseTree(TString input_files, TString config_file,
                i *= 2) {
             if (i & statusLc) {
               hCandidates->Fill(bin + 0.5);
+              hCandidatesVsPtCand->Fill(bin + 0.5, fPt);
               if (doMc) {
                 if (fFlagMc == 1) {
                   hCandidatesRecSig->Fill(bin + 0.5);
+                  hCandidatesVsPtCandRecSig->Fill(bin + 0.5, fPt);
                 } else {
                   hCandidatesRecBg->Fill(bin + 0.5);
+                  hCandidatesVsPtCandRecBg->Fill(bin + 0.5, fPt);
                 }
               }
             }
@@ -733,9 +762,12 @@ int analyseTree(TString input_files, TString config_file,
   TDirectory *dir1 = outFile->mkdir("hf-candidate-selector-lc-to-k0s-p");
   dir1->cd();
   hCandidates->Write();
+  hCandidatesVsPtCand->Write();
   if (doMc) {
     hCandidatesRecSig->Write();
+    hCandidatesVsPtCandRecSig->Write();
     hCandidatesRecBg->Write();
+    hCandidatesVsPtCandRecBg->Write();
   }
   outFile->cd();
   dir1->Write();
