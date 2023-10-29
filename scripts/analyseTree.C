@@ -450,9 +450,10 @@ int analyseTree(TString input_files, TString config_file,
   TH2F *th2sig[nHistos];
   TH1F *th1bg[nHistos];
   TH2F *th2bg[nHistos];
+  TCanvas *canvases[nHistos];
   TString histnames[nHistos] = {
       "hEtaCand",       "hPhiCand",        "hMass",          "hPtBach",
-      "hPtV0",          "hd0Bach",         "hd0V0",          "hd0V0pos",
+      "hPtV0",          "hd0Bach",         "TCanvashd0V0",          "hd0V0pos",
       "hd0V0neg",       "hPtV0pos",        "hPtV0neg",       "hV0CPA",
       "hV0Radius",      "hV0DCADaughters", "hV0MK0Short",    "hV0MLambda",
       "hV0MAntiLambda", "hV0Gamma",        "hCtV0K0Short",   "hCtV0Lambda",
@@ -751,6 +752,7 @@ int analyseTree(TString input_files, TString config_file,
                 hTOFNSigmaPrBachRecBg->Fill(fNSigmaTOFPr0);
                 hPBachVsTOFNSigmaPrBachRecBg->Fill(fPProng0, fNSigmaTOFPr0);
               }
+
             }
           }
         }
@@ -758,6 +760,25 @@ int analyseTree(TString input_files, TString config_file,
       }
     }
   }
+
+  if (doMc){
+    for (int i = 0; i < nHistos; i++) {
+                TH1F* tempsig = (TH1F*)th1sig[i]->Clone(histnames[i]);
+                tempsig->SetTitle(histnames[i]);
+                tempsig->SetStats(0);
+                TH1F* tempbg = (TH1F*)th1bg[i]->Clone();
+                tempsig->Scale(1./tempsig->Integral());
+                tempbg->Scale(1./tempbg->Integral());
+                tempsig->SetLineColor(kRed);
+                tempbg->SetLineColor(kBlue);
+                canvases[i] = new TCanvas();
+                auto rp = new TRatioPlot(tempsig, tempbg);
+                rp->Draw();
+                //tempsig->Draw("hist");
+                //tempbg->Draw("same hist");
+              }
+  }
+
   TFile *outFile = new TFile(output_file, "RECREATE");
   TDirectory *dir1 = outFile->mkdir("hf-candidate-selector-lc-to-k0s-p");
   dir1->cd();
