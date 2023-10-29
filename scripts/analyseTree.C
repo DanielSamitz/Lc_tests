@@ -386,7 +386,7 @@ void make_axis(TH2F *hist, double xAxis[3], double yAxis[3]) {
 }
 
 int analyseTree(TString input_files, TString config_file,
-                TString output_file = "AnalysisResults_tree.root") {
+                TString output_file = "AnalysisResults.root") {
 
   if (read_json(config_file) != 0) {
     return 1;
@@ -810,5 +810,20 @@ int analyseTree(TString input_files, TString config_file,
   }
   outFile->cd();
   dir->Write();
+  TH1F* mass[8];
+  mass[0]=(TH1F*)th2[2]->ProjectionX("1 GeV/#it{c} < #it{p}_{T} < 2 GeV/#it{c}",1,1);
+  mass[1]=(TH1F*)th2[2]->ProjectionX("2 GeV/#it{c} < #it{p}_{T} < 3 GeV/#it{c}",2,2);
+  mass[2]=(TH1F*)th2[2]->ProjectionX("3 GeV/#it{c} < #it{p}_{T} < 4 GeV/#it{c}",3,3);
+  mass[3]=(TH1F*)th2[2]->ProjectionX("4 GeV/#it{c} < #it{p}_{T} < 5 GeV/#it{c}",4,4);
+  mass[4]=(TH1F*)th2[2]->ProjectionX("5 GeV/#it{c} < #it{p}_{T} < 6 GeV/#it{c}",5,5);
+  mass[5]=(TH1F*)th2[2]->ProjectionX("6 GeV/#it{c} < #it{p}_{T} < 8 GeV/#it{c}",6,6);
+  mass[6]=(TH1F*)th2[2]->ProjectionX("8 GeV/#it{c} < #it{p}_{T} < 12 GeV/#it{c}",7,7);
+  mass[7]=(TH1F*)th2[2]->ProjectionX("12 GeV/#it{c} < #it{p}_{T} < 24 GeV/#it{c}",8,8);
+  TDirectory *dirfitter = outFile->mkdir("massFitter");
+  dirfitter->cd();
+  for (int i=0; i<8; i++){
+    mass[i]->Write(TString("hMass_bin")+TString(to_string(i+1)));
+  }
+  dirfitter->Write();
   return 0;
 }
