@@ -1,17 +1,17 @@
 {
   "IsMC": false,
-  "InFileName": "AnalysisResults_test.root",
+  "InFileName": "AnalysisResults.root",
   "ReflFileName": "",
-  "OutFileName": "massFitter/massfitter_out_all",
+  "OutFileName": "massfitter_out_all.root",
   "InputHistoName": [
-    "invMass_Bin1",
-    "invMass_Bin2",
-    "invMass_Bin3",
-    "invMass_Bin4",
-    "invMass_Bin5",
-    "invMass_Bin6",
-    "invMass_Bin7",
-    "invMass_Bin8"
+    "massFitter/hMass_bin1",
+    "massFitter/hMass_bin2",
+    "massFitter/hMass_bin3",
+    "massFitter/hMass_bin4",
+    "massFitter/hMass_bin5",
+    "massFitter/hMass_bin6",
+    "massFitter/hMass_bin7",
+    "massFitter/hMass_bin8"
   ],
   "PromptHistoName": [
     "MC prompt histogram name array"
@@ -52,7 +52,7 @@
   ],
   "_FixSigmaManual": "fix sigma mannually",
   "FixMean": false,
-  "MeanFile": "massFitter/AnalysisResults_test.root",
+  "MeanFile": "",
   "_MeanFile": "fix mean from file",
   "PtMin": [
     1.0,
@@ -96,10 +96,10 @@
   ],
   "Rebin": [
     11,
-    12,
-    12,
-    13,
-    13,
+    11,
+    11,
+    11,
+    11,
     16,
     16,
     19
@@ -115,7 +115,7 @@
     "false: chi2 fit"
   ],
   "BkgFunc": [
-    3,
+    4,
     0,
     0,
     5,
