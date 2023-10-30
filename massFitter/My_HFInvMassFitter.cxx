@@ -715,7 +715,7 @@ void HFInvMassFitter::plotBkg(RooAbsPdf* pdf)
       pdf->plotOn(mInvMassFrame, Components("bkgFuncPow"), Name("Bkg_c"), LineColor(kRed));
       break;
     case 4:
-      pdf->plotOn(mInvMassFrame, Components("bkgFuncPowExp"), Name("Bkg_c"), LineColor(kRed));
+      pdf->plotOn(mInvMassFrame, Components("bkgFuncPowExpo"), Name("Bkg_c"), LineColor(kRed));
       break;
     case 5:
       pdf->plotOn(mInvMassFrame, Components("bkgFuncPoly3"), Name("Bkg_c"), LineColor(kRed));
