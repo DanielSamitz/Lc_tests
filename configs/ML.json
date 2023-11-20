@@ -7,12 +7,6 @@
                 "1000"
             ]
         },
-        "loadModelsFromCCDB": "false",
-        "onnxFileNames": {
-            "values": [
-                "/home/daniel/alice/MyStuff/ML/Lc/BDT/model_onnx.onnx"
-            ]
-        },
         "cutDirMl": {
             "values": [
                 "0",
@@ -35,26 +29,33 @@
             ]
         },
         "nClassesMl": "2",
-        "inputFeaturesML": {
+        "namesInputFeatures": {
             "values": [
                 "ptProng0",
                 "ptProng1",
                 "impactParameter0",
                 "impactParameter1",
-                "v0CosPA",
+                "v0Radius",
+                "v0cosPA",
                 "v0MLambda",
                 "v0MAntiLambda",
                 "v0MK0Short",
                 "v0MGamma",
-                "v0CtK0Short",
-                "dcaV0Daughters",
+                "ctV0",
                 "ptV0Pos",
+                "dcaV0daughters",
                 "dcaPosToPV",
                 "ptV0Neg",
                 "dcaNegToPV",
                 "nSigmaTPCPr0",
                 "nSigmaTOFPr0"
             ]
-        }
+        },
+        "onnxFileNames": {
+            "values": [
+                "/home/daniel/alice/MyStuff/ML/Lc/BDT/model_onnx.onnx"
+            ]
+	},
+	"loadModelsFromCCDB": "false"
     }
-}
+ }
